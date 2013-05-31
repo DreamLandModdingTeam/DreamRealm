@@ -23,4 +23,5 @@ public class Colors {
 	public static final String COLOR_PINK       			= "\u00a7d";
 	public static final String COLOR_YELLOW     		= "\u00a7e";
 	public static final String COLOR_WHITE      		= "\u00a7f";
+	public static final String COLOR_PURE_WHITE 	= "ffffff";
 }

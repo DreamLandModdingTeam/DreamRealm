@@ -84,33 +84,38 @@ public class Kirby {
 		/* 
 		 *  DONE: 版本0.0.1
 		 *  
-		 *  -
+		 *  -第一个版本
 		 *  
 		 *  
-	 	 *	TODO: 下一个版本 0.0.2
+	 	 *	DRTODO: 版本 0.0.2
 	 	 *
 	 	 * -区别梦与现实(在梦里死去就醒来)                                                                                                                                       好讽刺
 	 	 * -入睡后才入梦
 		 * -入睡后有一定几率不入梦
 		 * -添加睡眠机器(带模型，可以百分百入梦)
-		 * -添加外部化语言文件
+		 * -DONE:添加外部化语言文件
+		 * 
+		 * 			DRXXX v0.0.2a
+		 * 			-BUG DR-0001 //fixed              ←。←也就是还没fix
+		 * 
+		 * 
 		 *
-		 *  TODO:  版本0.0.3 (Pretty Scary Update)
+		 *  DRTODO:  版本0.0.3 (Pretty Scary Update)
 		 * 
 		 * -添加噩梦
 		 * -添加梦魇(模型已经完成)
 		 * -添加噩梦Boss(LS+1)
 		 * -添加噩梦主题方块
 		 * 
-		 *  TODO: 版本0.0.4 (Wonderful Update)
+		 *  DRTODO: 版本0.0.4 (Wonderful Update)
 		 *  
-		 *  -添加美梦
+		 *  -添加美梦以及与美梦相关的方块和生物
 		 *  
-		 *  TODO: 版本0.0.5 (Story Update)
+		 *  DRTODO: 版本0.0.5 (Story Update)
 		 *  
 		 *  -添加剧情(做一个有剧情的mod)
 		 *  
-		 *  TODO: 版本0.0.6 ()
+		 *  DRTODO: 版本0.0.6 ()
 		 *  
 		 *  
 		 */

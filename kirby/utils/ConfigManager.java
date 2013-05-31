@@ -36,7 +36,7 @@ public class ConfigManager{
 		}
 		catch (Exception e)
 		{
-			FMLLog.log(Level.SEVERE, e, "Kirby mod has a problem loading it's configuration");
+			FMLLog.log(Level.SEVERE, e, "DreamRealm mod has a problem loading it's configuration");
 		}finally {
 			cfg.save();
 			ConfigManager.loaded = true;

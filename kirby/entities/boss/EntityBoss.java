@@ -13,7 +13,6 @@ public class EntityBoss  extends EntityLiving implements IBossDisplayData, IRang
 	
 	public EntityBoss(World par1World) {
 		super(par1World);
-		// TODO Auto-generated constructor stub
 		this.setEntityHealth(this.getMaxHealth());
         this.texture = "/mob/enderdragon/ender.png";
         this.noClip = true;

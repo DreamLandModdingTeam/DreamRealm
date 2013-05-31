@@ -17,7 +17,6 @@ public class EntityNightmare extends EntityMob{
 	
 	public EntityNightmare(World par1World) {
 		super(par1World);
-		// TODO Auto-generated constructor stub
 		this.texture = "/mob/enderman.png";
         this.moveSpeed = 0.2F;
         this.setSize(0.6F, 2.9F);
@@ -26,7 +25,6 @@ public class EntityNightmare extends EntityMob{
 
 	@Override
 	public int getMaxHealth() {
-		// TODO Auto-generated method stub
 		return 60;
 	}
 	

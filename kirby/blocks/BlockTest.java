@@ -8,7 +8,6 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockTest extends Block{
 
 	public BlockTest(int par1, Material par2Material) {
-		// TODO Auto-generated constructor stub
 		super(par1, Material.rock);
 		setUnlocalizedName("blockTest");
 		setCreativeTab(CreativeTabs.tabDecorations);

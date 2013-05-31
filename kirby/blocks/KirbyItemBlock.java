@@ -10,7 +10,6 @@ public class KirbyItemBlock extends ItemBlock {
 	
 	public KirbyItemBlock(int id,String name) {
 		super(id);
-		// TODO Auto-generated constructor stub
 		this.name = name;
 	}
 

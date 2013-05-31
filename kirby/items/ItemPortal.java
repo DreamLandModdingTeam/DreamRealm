@@ -16,7 +16,6 @@ public class ItemPortal extends Item{
 
 	public ItemPortal(int par1) {
 		super(par1);
-		// TODO Auto-generated constructor stub
 		this.setCreativeTab(CreativeTabs.tabBlock);
 	}
 	

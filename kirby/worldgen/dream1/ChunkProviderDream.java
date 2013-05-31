@@ -454,7 +454,6 @@ public class ChunkProviderDream
 
 	@Override
 	public boolean unloadQueuedChunks() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

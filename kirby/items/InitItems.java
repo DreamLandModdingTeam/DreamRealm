@@ -13,7 +13,6 @@ public class InitItems {
 	}
 
 	private void registerItem() {
-		// TODO Auto-generated method stub
 
 	}
 	
