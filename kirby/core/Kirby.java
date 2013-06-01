@@ -1,3 +1,8 @@
+/**
+ * @author DreamLandModdingTeam
+ *	Copyright (c) DreamLand Modding Team, 2013
+ * 	版权许可：DreamLand 制作小组， 2013.
+ */
 package kirby.core;
 
 
@@ -25,18 +30,27 @@ import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+
+/**
+ *mod主类
+ */
 @Mod(modid = MOD_ID, name = MOD_NAME, version = MOD_VERSION)//v0.0.2a
 @NetworkMod(clientSideRequired = true, serverSideRequired = false,
 channels={PACKET_CHANEL})
 public class Kirby {
 	
+		/**
+		 * 加载代理
+		 */
 		@SidedProxy(clientSide = "kirby.utils.proxy.ClientProxy", 
 								serverSide = "kirby.utils.proxy.CommonProxy")
 		public static CommonProxy proxy;
@@ -46,11 +60,24 @@ public class Kirby {
 
 		public static final String CONFIG_FILE = "kirby/main.conf";
 		
+		/**
+		 * 美梦
+		 */
 		public static int Dimid = DimensionManager.getNextFreeDimId();
+		/**
+		 * 噩梦
+		 */
 		public static int Dimid2 = DimensionManager.getNextFreeDimId();
 		
+		/**
+		 * Creative Tabs
+		 */
 		public static CreativeTabs customTab = new TabDreamRealm("customTab");
 		
+		/**
+		 * @param event
+		 * 预加载（设置、世界生成、注册Event）
+		 */
 		@PreInit
 	    public void preInit(FMLPreInitializationEvent event)
 	    {
@@ -68,8 +95,12 @@ public class Kirby {
 
 	    }
 		
+		/**
+		 * @param event
+		 * 加载（方块，物品，实体）
+		 */
 		@Init
-	    public void load(FMLInitializationEvent event)
+	    public void init(FMLInitializationEvent event)
 	    {
 			new InitBlocks();
 			
@@ -80,6 +111,15 @@ public class Kirby {
 			LanguageRegistry.instance().addStringLocalization
 													("itemGroup.customTab", Localization.get("creativeTab.text"));
 	    }
+		
+		/**
+		 * @param Init
+		 * 加载后
+		 */
+		@PostInit
+		public void postInit(FMLPostInitializationEvent Init){
+			
+		}
 		
 		/* 
 		 *  DONE: 版本0.0.1

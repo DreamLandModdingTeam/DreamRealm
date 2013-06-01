@@ -1,9 +1,10 @@
 package kirby.entities;
 
-import kirby.core.Kirby;
-import kirby.entities.boss.EntityBoss;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
+/**
+ * @author kirby
+ *
+ */
 public class InitEntities {
 	EntityNightmare nightmare;
 	

@@ -10,7 +10,7 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 
 /**
  * @author kirby
- * DRXXX 这里好多东西task要搞定啊……
+ * DRFIXME 这里好多东西task要搞定啊……
  */
 public class EventHandler {
 	

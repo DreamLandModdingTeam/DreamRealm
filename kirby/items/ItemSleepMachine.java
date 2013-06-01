@@ -1,11 +1,6 @@
 package kirby.items;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBed;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 
 public class ItemSleepMachine extends ItemBed{
 
