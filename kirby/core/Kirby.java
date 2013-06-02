@@ -55,9 +55,15 @@ public class Kirby {
 								serverSide = "kirby.utils.proxy.CommonProxy")
 		public static CommonProxy proxy;
 	
-		@Instance("mod_Kirby")
+		/**
+		 * 主类实例
+		 */
+		@Instance(MOD_ID)
 		public static Kirby instance;
 
+		/**
+		 * 配置文件路径
+		 */
 		public static final String CONFIG_FILE = "kirby/main.conf";
 		
 		/**
@@ -70,7 +76,7 @@ public class Kirby {
 		public static int Dimid2 = DimensionManager.getNextFreeDimId();
 		
 		/**
-		 * Creative Tabs
+		 * Creative Tab
 		 */
 		public static CreativeTabs customTab = new TabDreamRealm("customTab");
 		
@@ -81,6 +87,7 @@ public class Kirby {
 		@PreInit
 	    public void preInit(FMLPreInitializationEvent event)
 	    {
+			
 			new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE));
 			
 			Localization.addLocalization("/kirby/lang/", "en_US");
@@ -97,11 +104,12 @@ public class Kirby {
 		
 		/**
 		 * @param event
-		 * 加载（方块，物品，实体）
+		 * 加载（方块，物品，实体,网络处理）
 		 */
 		@Init
 	    public void init(FMLInitializationEvent event)
 	    {
+			
 			new InitBlocks();
 			
 			new InitItems();
@@ -110,18 +118,24 @@ public class Kirby {
 
 			LanguageRegistry.instance().addStringLocalization
 													("itemGroup.customTab", Localization.get("creativeTab.text"));
+			
+			
 	    }
 		
 		/**
-		 * @param Init
+		 * @param event
 		 * 加载后
 		 */
 		@PostInit
-		public void postInit(FMLPostInitializationEvent Init){
+		public void postInit(FMLPostInitializationEvent event){
 			
 		}
 		
+		
+		
 		/* 
+		 * 主线任务↓
+		 * 
 		 *  DONE: 版本0.0.1
 		 *  
 		 *  -第一个版本
@@ -136,7 +150,7 @@ public class Kirby {
 		 * -DONE:添加外部化语言文件
 		 * 
 		 * 			DRXXX v0.0.2a
-		 * 			-BUG DR-0001 //fixed              ←。←也就是还没fix
+		 * 			-BUG DR-0001 //fixed              ←_←也就是还没fix
 		 * 
 		 * 
 		 *
@@ -159,4 +173,15 @@ public class Kirby {
 		 *  
 		 *  
 		 */
+		
+		/*
+		 *支线任务↓
+		 *还没有(ˉ▽￣～) 
+		 *
+		 *
+		 *
+		 *
+		 *
+		 */
+		
 }

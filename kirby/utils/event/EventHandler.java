@@ -1,9 +1,10 @@
 package kirby.utils.event;
 
-import static kirby.core.lib.Colors.COLOR_PURE_WHITE;
 import kirby.core.Kirby;
 import kirby.utils.Localization;
 import kirby.worldgen.dream1.TeleporterDream;
+import static kirby.core.lib.Colors.*;
+
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -37,7 +38,7 @@ public class EventHandler {
 							thePlayer.inventory.clearInventory(-1, -1);
 
 				}										
-					thePlayer.sendChatToPlayer(COLOR_PURE_WHITE+Localization.get("xxx.ooo.text"));
+					thePlayer.sendChatToPlayer(COLOR_WHITE+Localization.get("xxx.ooo.text"));
 				}
 			}
 		}
@@ -69,7 +70,7 @@ public class EventHandler {
 //	/**
 //	 * @param event
 //	 * 名字好长_(:3J ∠)_34个字母……	
-//	 * DRTODO 在睡觉之前储存当前背包的东西，醒来后背包的东西不丢失(好吧我发现其实好像不用这个方法)
+//	 * DRTO DO 在睡觉之前储存当前背包的东西，醒来后背包的东西不丢失(好吧我发现其实好像不用这个方法)
 //	 */
 //	@ForgeSubscribe
 //	public void theDifferenceBetweenDreamAndReality(PlayerEvent event){

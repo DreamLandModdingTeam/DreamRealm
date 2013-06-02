@@ -5,6 +5,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 public class TabDreamRealm extends CreativeTabs {
+	
+	/**
+	 * @param label
+	 */
 	public TabDreamRealm(String label) 
 	{
 	    super(label);

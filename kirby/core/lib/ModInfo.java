@@ -1,5 +1,8 @@
 package kirby.core.lib;
 
+/**
+ *mod基本信息
+ */
 public class ModInfo {
 	public static final String MOD_ID = "mod_DreamRealm";
 	public static final String MOD_NAME = "Dream Realm";
