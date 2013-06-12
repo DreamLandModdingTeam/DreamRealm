@@ -24,6 +24,7 @@ import kirby.utils.event.DRSoundManager;
 import kirby.utils.event.EventHandler;
 import kirby.utils.proxy.CommonProxy;
 import kirby.worldgen.dream1.WorldProviderDream;
+import kirby.worldgen.dream2.WorldProviderDarkForest;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -73,7 +74,7 @@ public class Kirby {
 		/**
 		 * 噩梦
 		 */
-		public static int Dimid2 = DimensionManager.getNextFreeDimId();
+		public static int Dimid2 = 7/*DimensionManager.getNextFreeDimId()*/;
 		
 		/**
 		 * Creative Tab
@@ -99,6 +100,9 @@ public class Kirby {
 			DimensionManager.registerProviderType(Dimid,
 					WorldProviderDream.class, true);
 			DimensionManager.registerDimension(Dimid, Dimid);
+			DimensionManager.registerProviderType(Dimid2,
+					WorldProviderDarkForest.class, true);
+			DimensionManager.registerDimension(Dimid2, Dimid2);
 
 	    }
 		

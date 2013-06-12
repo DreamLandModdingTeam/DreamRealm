@@ -2,6 +2,7 @@ package kirby.items;
 
 import kirby.core.Kirby;
 import kirby.worldgen.dream1.TeleporterDream;
+import kirby.worldgen.dream2.TeleporterDrakForest;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,10 +25,10 @@ public class ItemPortal extends Item{
 			EntityPlayer par3EntityPlayer){
 			if (par3EntityPlayer instanceof EntityPlayerMP) {
 				EntityPlayerMP thePlayer = (EntityPlayerMP) par3EntityPlayer;
-				if (thePlayer.dimension != Kirby.Dimid) {
+				if (thePlayer.dimension != Kirby.Dimid2) {
 					thePlayer.mcServer.getConfigurationManager()
-							.transferPlayerToDimension(thePlayer,Kirby.Dimid,new TeleporterDream
-									(thePlayer.mcServer.worldServerForDimension(Kirby.Dimid)));
+							.transferPlayerToDimension(thePlayer,Kirby.Dimid2,new TeleporterDrakForest
+									(thePlayer.mcServer.worldServerForDimension(Kirby.Dimid2)));
 				}
 				thePlayer.sendChatToPlayer("GOOD LUCK!");		
 	}

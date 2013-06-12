@@ -36,20 +36,23 @@ public class WorldProviderDream extends WorldProvider {
 	public float[] calcSunriseSunsetColors(float f, float f1) {
 		return null;
 	}
-@Override
-@SideOnly(Side.CLIENT)
-public Vec3 getFogColor(float par1, float par2)
-{
-	return this.worldObj.getWorldVec3Pool().getVecFromPool(1.1D, 1.1D, 1.1D);
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Vec3 getFogColor(float par1, float par2){
+		return this.worldObj.getWorldVec3Pool().getVecFromPool(1.1D, 1.1D, 1.1D);
 	}
-@Override
+	
+	@Override
 	public boolean isSkyColored() {
 		return false;
 	}
-@Override
+	
+	@Override
 	public float getCloudHeight() {
 		return 8F;
 	}
+	
 @Override
 	public boolean canCoordinateBeSpawn(int i, int j) {
 		int k = worldObj.getFirstUncoveredBlock(i, j);
@@ -59,13 +62,14 @@ public Vec3 getFogColor(float par1, float par2)
 		} else {
 			return Block.blocksList[k].blockMaterial.isSolid();
 		}
-
 	}
+
 	@Override
 	public boolean canRespawnHere()
     {
         return false;
     }
+	
 	@Override
 	public double getHorizon()
     {
