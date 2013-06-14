@@ -9,16 +9,15 @@ import static kirby.core.lib.ModInfo.*;
 public class CommonProxy {
 
 	public void onLoad() {
-	//	TickRegistry.registerTickHandler(new TickHandler(), Side.SERVER);
+		
 	}
 	
 	public void registerBlock(Block block) {
-		Item.itemsList[block.blockID] = null;
-		Item.itemsList[block.blockID] = new KirbyItemBlock(block.blockID - 256, block.getUnlocalizedName());
+		GameRegistry.registerBlock(block, KirbyItemBlock.class, block.getUnlocalizedName(), MOD_ID);
 	}
 	
 	public void registerItem(Item item) {
-		GameRegistry.registerItem(item,item.getUnlocalizedName(), MOD_NAME);
+		GameRegistry.registerItem(item,item.getUnlocalizedName(), MOD_ID);
 	}
 	
 	public String getCurrentLanguage() {
@@ -26,7 +25,7 @@ public class CommonProxy {
 	}
 
 	public void registerRenderInformation() {
-		// TODO Auto-generated method stub
+		//not to use
 		
 	}
 }

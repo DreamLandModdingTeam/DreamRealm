@@ -5,12 +5,9 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 public class KirbyItemBlock extends ItemBlock {
-
-	protected String name;
-	
-	public KirbyItemBlock(int id,String name) {
+	public KirbyItemBlock(int id) {
 		super(id);
-		this.name = name;
+		
 	}
 
 	@Override

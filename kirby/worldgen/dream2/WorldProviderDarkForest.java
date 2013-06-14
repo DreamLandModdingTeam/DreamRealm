@@ -14,7 +14,7 @@ public class WorldProviderDarkForest extends WorldProvider {
 	public void registerWorldChunkManager() {
 		worldChunkMgr = new WorldChunkManagerHell(DRBiomeGenBase.DarkForest,
 				1.0F, 0.0F);
-		this.dimensionId = Kirby.Dimid2;
+		this.dimensionId = Kirby.IdNightmare;
 	}
 
 	@Override

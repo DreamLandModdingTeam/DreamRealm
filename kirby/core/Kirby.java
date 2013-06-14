@@ -14,12 +14,14 @@ import static kirby.core.lib.ModInfo.PACKET_CHANEL;
 
 import java.io.File;
 
+
 import kirby.blocks.InitBlocks;
 import kirby.core.tab.TabDreamRealm;
 import kirby.entities.InitEntities;
 import kirby.items.InitItems;
 import kirby.utils.ConfigManager;
 import kirby.utils.Localization;
+import kirby.utils.TickHandler;
 import kirby.utils.event.DRSoundManager;
 import kirby.utils.event.EventHandler;
 import kirby.utils.proxy.CommonProxy;
@@ -39,6 +41,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 
 /**
@@ -53,7 +57,7 @@ public class Kirby {
 		 * 加载代理
 		 */
 		@SidedProxy(clientSide = "kirby.utils.proxy.ClientProxy", 
-								serverSide = "kirby.utils.proxy.CommonProxy")
+					serverSide = "kirby.utils.proxy.CommonProxy")
 		public static CommonProxy proxy;
 	
 		/**
@@ -70,16 +74,16 @@ public class Kirby {
 		/**
 		 * 美梦
 		 */
-		public static int Dimid = DimensionManager.getNextFreeDimId();
+		public static int IdDream =2;// DimensionManager.getNextFreeDimId();
 		/**
 		 * 噩梦
 		 */
-		public static int Dimid2 = 7/*DimensionManager.getNextFreeDimId()*/;
+		public static int IdNightmare = 7/*DimensionManager.getNextFreeDimId()*/;
 		
 		/**
 		 * Creative Tab
 		 */
-		public static CreativeTabs customTab = new TabDreamRealm("customTab");
+		public static CreativeTabs customTab = new TabDreamRealm("dreamRealm");
 		
 		/**
 		 * @param event
@@ -91,19 +95,17 @@ public class Kirby {
 			
 			new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE));
 			
-			Localization.addLocalization("/kirby/lang/", "en_US");
+			
 			
 			MinecraftForge.EVENT_BUS.register(new DRSoundManager());
 			
 			MinecraftForge.EVENT_BUS.register(new EventHandler());
 
-			DimensionManager.registerProviderType(Dimid,
-					WorldProviderDream.class, true);
-			DimensionManager.registerDimension(Dimid, Dimid);
-			DimensionManager.registerProviderType(Dimid2,
-					WorldProviderDarkForest.class, true);
-			DimensionManager.registerDimension(Dimid2, Dimid2);
-
+			DimensionManager.registerProviderType(IdDream,WorldProviderDream.class, true);
+			DimensionManager.registerDimension(IdDream, IdDream);
+			DimensionManager.registerProviderType(IdNightmare,WorldProviderDarkForest.class, true);
+			DimensionManager.registerDimension(IdNightmare, IdNightmare);
+			Localization.addLocalization("/kirby/lang/", "en_US");
 	    }
 		
 		/**
@@ -119,10 +121,9 @@ public class Kirby {
 			new InitItems();
 			
 			new InitEntities();
-
-			LanguageRegistry.instance().addStringLocalization
-													("itemGroup.customTab", Localization.get("creativeTab.text"));
-			
+			TickRegistry.registerTickHandler(new TickHandler(), Side.SERVER);
+			LanguageRegistry.instance().addStringLocalization("itemGroup.customTab", Localization.get("creativeTab.text"));
+			proxy.onLoad();
 			
 	    }
 		

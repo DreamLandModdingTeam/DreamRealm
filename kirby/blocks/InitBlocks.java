@@ -23,7 +23,7 @@ public class InitBlocks {
 	 * 
 	 */
 	private void registerBlock() {
-		// TODO Auto-generated method stub
+
 
 		Kirby.proxy.registerBlock(BlockOreTi);
 

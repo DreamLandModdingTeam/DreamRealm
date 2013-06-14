@@ -25,10 +25,10 @@ public class ItemPortal extends Item{
 			EntityPlayer par3EntityPlayer){
 			if (par3EntityPlayer instanceof EntityPlayerMP) {
 				EntityPlayerMP thePlayer = (EntityPlayerMP) par3EntityPlayer;
-				if (thePlayer.dimension != Kirby.Dimid2) {
+				if (thePlayer.dimension != Kirby.IdNightmare) {
 					thePlayer.mcServer.getConfigurationManager()
-							.transferPlayerToDimension(thePlayer,Kirby.Dimid2,new TeleporterDrakForest
-									(thePlayer.mcServer.worldServerForDimension(Kirby.Dimid2)));
+							.transferPlayerToDimension(thePlayer,Kirby.IdNightmare,new TeleporterDrakForest
+									(thePlayer.mcServer.worldServerForDimension(Kirby.IdNightmare)));
 				}
 				thePlayer.sendChatToPlayer("GOOD LUCK!");		
 	}

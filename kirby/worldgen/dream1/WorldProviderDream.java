@@ -22,7 +22,7 @@ public class WorldProviderDream extends WorldProvider {
 	@Override
 	public void registerWorldChunkManager() {
 		super.registerWorldChunkManager();
-		this.dimensionId =Kirby.Dimid;
+		this.dimensionId =Kirby.IdDream;
 	}
 	@Override
 	public IChunkProvider createChunkGenerator() {
