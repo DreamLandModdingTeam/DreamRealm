@@ -1,4 +1,4 @@
-package kirby.worldgen.dream2;
+package kirby.world.world2;
 
 import java.util.ArrayList;
 import java.util.Iterator;

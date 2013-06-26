@@ -10,9 +10,12 @@ public class ConfigManager{
 
 	private static boolean loaded;
 
-	public static Configuration cfg;
+	public static Configuration config;
 
-	//Blocks
+	
+	/**
+	 * 方块
+	 */
 	public static int idTi;
 
 	/**
@@ -21,25 +24,96 @@ public class ConfigManager{
 	public ConfigManager(File file) {
 		if (!loaded)
 		{
-			cfg = new Configuration(file);
+			config = new Configuration(file);
 			setVaules();
 		}
 	}
 
 
+	/**
+	 * ========================================================
+	 * ========================================================
+	 */
 	private void setVaules(){
 		try {
-			cfg.load();
+			config.load();
 
-			idTi = cfg.get(Configuration.CATEGORY_BLOCK,"OreTi",2223).getInt();
+			idTi = this.getInteger("OreTi",2223);
 
 		}
 		catch (Exception e)
 		{
 			FMLLog.log(Level.SEVERE, e, "DreamRealm mod has a problem loading it's configuration");
 		}finally {
-			cfg.save();
+			config.save();
 			ConfigManager.loaded = true;
 		}
 	}
+	
+	
+	/**
+	 * @param PropertyName
+	 * @param DefaultValue
+	 * @return
+	 * @throws Exception
+	 */
+	public String getGeneralProperties(String PropertyName, String DefaultValue) throws Exception
+	{
+	    if(this == null)
+	    {
+	        throw new NullPointerException();
+	    }
+	    return config.get("general", PropertyName, DefaultValue).getString();
+	}
+
+	/**
+	 * @param name
+	 * @param defaultValue
+	 * @return
+	 * @throws Exception
+	 */
+	public Boolean getBoolean(String name, Boolean defaultValue)throws Exception{
+		if(this == null){
+			throw new NullPointerException();
+		}
+		return config.get("general", name, defaultValue).getBoolean(defaultValue);
+	}
+
+	/**
+	 * @param name
+	 * @param defaultValue
+	 * @return
+	 * @throws Exception
+	 */
+	public int getInteger(String name, Integer defaultValue)throws Exception{
+		if(this == null){
+			throw new NullPointerException();
+		}
+		return config.get("general", name, defaultValue).getInt();
+	}
+
+	public int getItemID(String ItemName, int DefaultValue) throws Exception
+	{
+	    if(this == null)
+	    {
+	        throw new NullPointerException();
+	    }
+	    return config.getItem("item", "ID." + ItemName, DefaultValue).getInt();
+	}
+
+	public int getBlockID(String BlockName, int DefaultID) throws Exception
+	{
+	    if( this  == null)
+	    {
+	        throw new NullPointerException();
+	    }
+	    return config.getBlock("ID." + BlockName, DefaultID).getInt();
+	}
+
+	public int getKeyCode(String keyName, int defaultKey) throws Exception{
+		if(this == null)
+			 throw new NullPointerException();
+		return config.get("key", "KB." + keyName, defaultKey).getInt();
+	}
+
 }

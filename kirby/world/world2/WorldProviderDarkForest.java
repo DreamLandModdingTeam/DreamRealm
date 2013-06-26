@@ -1,9 +1,9 @@
-package kirby.worldgen.dream2;
+package kirby.world.world2;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import kirby.core.Kirby;
-import kirby.worldgen.DRBiomeGenBase;
+import kirby.world.DRBiomeGenBase;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
@@ -12,8 +12,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 public class WorldProviderDarkForest extends WorldProvider {
 	@Override
 	public void registerWorldChunkManager() {
-		worldChunkMgr = new WorldChunkManagerHell(DRBiomeGenBase.DarkForest,
-				1.0F, 0.0F);
+		worldChunkMgr = new WorldChunkManagerHell(DRBiomeGenBase.darkForest,1.0F, 2.0F);
 		this.dimensionId = Kirby.IdNightmare;
 	}
 

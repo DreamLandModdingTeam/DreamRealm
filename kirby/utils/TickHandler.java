@@ -5,7 +5,7 @@ import static kirby.core.lib.Colors.COLOR_WHITE;
 import java.util.EnumSet;
 
 import kirby.core.Kirby;
-import kirby.worldgen.dream1.TeleporterDream;
+import kirby.world.world1.TeleporterDream;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.Teleporter;
@@ -16,7 +16,10 @@ import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
 public class TickHandler implements ITickHandler {
-PlayerInvSaveData invData;
+	
+	PlayerInvSaveData invData;
+	int health;
+	
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData) {
 		// TODO Auto-generated method stub
@@ -34,7 +37,7 @@ PlayerInvSaveData invData;
 							(player,Kirby.IdDream,new TeleporterDream
 								(player.mcServer.worldServerForDimension(Kirby.IdDream)));
 					saveInventory(player);
-					
+					health = player.getHealth();
 						player.inventory.clearInventory(-1, -1);
 
 			}
@@ -43,16 +46,15 @@ PlayerInvSaveData invData;
 			
 		}
 		if(player.dimension == Kirby.IdDream){
-			if(player.posY<=0){
+			if(player.posY<=5){
 			player.mcServer.getConfigurationManager()
 			.transferPlayerToDimension(player,0,new Teleporter
 					(player.mcServer.worldServerForDimension(0)));
-			player.setPosition(player.getHomePosition().posX, player.getHomePosition().posY, player.getHomePosition().posZ);
 			loadInventory(player);
 			player.inventory.mainInventory=invData.getPlayerInv();
 			player.inventory.armorInventory=invData.getPlayerArmor();
 			player.wakeUpPlayer(true, false, false);
-//			player.heal(health);
+			player.heal(health);
 //			player.worldObj.setWorldTime(currentTime+currentTime/10);
 			}
 		}

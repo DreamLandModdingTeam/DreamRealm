@@ -1,5 +1,6 @@
 package kirby.utils.event;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -15,14 +16,14 @@ import cpw.mods.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class DRSoundManager extends SoundManager {
-	private static final String SOUND_RESOURCE_LOCATION = "/sound/";
-
+	private static final String SOUND_PATH = "/sound/";
+	
 	/**
 	 * 声音文件库
 	 */
 	private String[] soundFiles = { 
 
-			"xx.ogg",
+			"collection1.ogg",
 	};
 
 	/**
@@ -34,7 +35,7 @@ public class DRSoundManager extends SoundManager {
 	public void onSoundsLoaded(SoundLoadEvent event) throws IOException {
 
 		for (String soundFile : soundFiles) {
-			String s = SOUND_RESOURCE_LOCATION + soundFile;
+			String s = SOUND_PATH + soundFile;
 			try {
 				URL url = this.getClass().getResource(s);
 				event.manager.soundPoolSounds.addSound(soundFile, url);

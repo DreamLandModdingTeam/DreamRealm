@@ -25,8 +25,8 @@ import kirby.utils.TickHandler;
 import kirby.utils.event.DRSoundManager;
 import kirby.utils.event.EventHandler;
 import kirby.utils.proxy.CommonProxy;
-import kirby.worldgen.dream1.WorldProviderDream;
-import kirby.worldgen.dream2.WorldProviderDarkForest;
+import kirby.world.world1.WorldProviderDream;
+import kirby.world.world2.WorldProviderDarkForest;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -57,7 +57,7 @@ public class Kirby {
 		 * 加载代理
 		 */
 		@SidedProxy(clientSide = "kirby.utils.proxy.ClientProxy", 
-					serverSide = "kirby.utils.proxy.CommonProxy")
+							serverSide = "kirby.utils.proxy.CommonProxy")
 		public static CommonProxy proxy;
 	
 		/**
@@ -69,16 +69,16 @@ public class Kirby {
 		/**
 		 * 配置文件路径
 		 */
-		public static final String CONFIG_FILE = "kirby/main.conf";
+		public static final String CONFIG_FILE_PATH = "kirby/Dreamrealm.conf";
 		
 		/**
 		 * 美梦
 		 */
-		public static int IdDream =2;// DimensionManager.getNextFreeDimId();
+		public static int IdDream =8/*DimensionManager.getNextFreeDimId()*/;
 		/**
 		 * 噩梦
 		 */
-		public static int IdNightmare = 7/*DimensionManager.getNextFreeDimId()*/;
+		public static int IdNightmare = 9/*DimensionManager.getNextFreeDimId()*/;
 		
 		/**
 		 * Creative Tab
@@ -92,10 +92,7 @@ public class Kirby {
 		@PreInit
 	    public void preInit(FMLPreInitializationEvent event)
 	    {
-			
-			new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE));
-			
-			
+			new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE_PATH));
 			
 			MinecraftForge.EVENT_BUS.register(new DRSoundManager());
 			
@@ -105,6 +102,7 @@ public class Kirby {
 			DimensionManager.registerDimension(IdDream, IdDream);
 			DimensionManager.registerProviderType(IdNightmare,WorldProviderDarkForest.class, true);
 			DimensionManager.registerDimension(IdNightmare, IdNightmare);
+			
 			Localization.addLocalization("/kirby/lang/", "en_US");
 	    }
 		
@@ -121,7 +119,9 @@ public class Kirby {
 			new InitItems();
 			
 			new InitEntities();
+			
 			TickRegistry.registerTickHandler(new TickHandler(), Side.SERVER);
+			
 			LanguageRegistry.instance().addStringLocalization("itemGroup.customTab", Localization.get("creativeTab.text"));
 			proxy.onLoad();
 			

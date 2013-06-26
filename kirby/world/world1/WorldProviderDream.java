@@ -1,4 +1,4 @@
-package kirby.worldgen.dream1;
+package kirby.world.world1;
 
 import kirby.core.Kirby;
 import net.minecraft.block.Block;
