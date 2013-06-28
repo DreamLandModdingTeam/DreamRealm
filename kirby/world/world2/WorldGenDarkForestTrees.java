@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 /**
  * @author hp
- *DRXXX 求变得像森林……现在想草原
+ *DRXXX 求变得像森林……现在像草原
  */
 public class WorldGenDarkForestTrees extends WorldGenerator
 {

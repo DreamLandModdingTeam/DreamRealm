@@ -3,7 +3,7 @@ package kirby.core.lib;
 /**
  * @author kirby
  *方便给提示信息加颜色
- *加上import static kirby.core,lib,Colors.*;这个吧
+ *用的时候加上import static kirby.core,lib,Colors.*;这个吧
  */
 public class Colors {
 	

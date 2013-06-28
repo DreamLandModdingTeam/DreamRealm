@@ -14,7 +14,6 @@ import static kirby.core.lib.ModInfo.PACKET_CHANEL;
 
 import java.io.File;
 
-
 import kirby.blocks.InitBlocks;
 import kirby.core.tab.TabDreamRealm;
 import kirby.entities.InitEntities;
@@ -25,6 +24,7 @@ import kirby.utils.TickHandler;
 import kirby.utils.event.DRSoundManager;
 import kirby.utils.event.EventHandler;
 import kirby.utils.proxy.CommonProxy;
+import kirby.world.WorldGenOres;
 import kirby.world.world1.WorldProviderDream;
 import kirby.world.world2.WorldProviderDarkForest;
 import net.minecraft.creativetab.CreativeTabs;
@@ -40,6 +40,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -104,6 +105,8 @@ public class Kirby {
 			DimensionManager.registerDimension(IdNightmare, IdNightmare);
 			
 			Localization.addLocalization("/kirby/lang/", "en_US");
+			
+			GameRegistry.registerWorldGenerator(new WorldGenOres());
 	    }
 		
 		/**
@@ -181,7 +184,7 @@ public class Kirby {
 		
 		/*
 		 *支线任务↓
-		 *还没有(ˉ▽￣～) 
+		 *还没有╮(￣▽￣)╭
 		 *
 		 *
 		 *

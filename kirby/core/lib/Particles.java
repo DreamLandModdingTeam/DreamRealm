@@ -1,13 +1,7 @@
 package kirby.core.lib;
 
-/**
- * Particles
- * 
- * @author pahimar
- * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
- * 我会说这个是在ee3那里偷来的么
- */
 public class Particles {
+	
 	    /**
 	     * 原版的一些粒子效果
 	     */

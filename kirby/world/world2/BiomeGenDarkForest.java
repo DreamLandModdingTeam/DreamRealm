@@ -28,11 +28,14 @@ public class BiomeGenDarkForest extends BiomeGenBase
         fillerBlock = (byte)Block.dirt.blockID;
     }
 
-    @Override
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(10) == 0 ? this.worldGeneratorBigTree : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(3, 0) : (par1Random.nextInt(3) == 0 ? new WorldGenDarkForestTrees(false) : new WorldGenTrees(false, 4 + par1Random.nextInt(7), 3, 3, true))));
-    }
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random) {
+		return (WorldGenerator) (par1Random.nextInt(10) == 0 ? this.worldGeneratorBigTree
+				: (par1Random.nextInt(2) == 0 ? new WorldGenShrub(3, 0)
+						: (par1Random.nextInt(3) == 0 ? new WorldGenDarkForestTrees(
+								false) : new WorldGenTrees(false,
+								4 + par1Random.nextInt(7), 3, 3, true))));
+	}
     
     @Override
     @SideOnly(Side.CLIENT)

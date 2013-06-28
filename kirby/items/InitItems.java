@@ -1,12 +1,14 @@
 package kirby.items;
 
+import kirby.utils.ConfigManager;
+
 public class InitItems {
 	
 	
-	ItemPortal itemportal;
+	ItemTest itemtest;
 	
 	public InitItems(){
-		itemportal = new ItemPortal(200);
+		itemtest = new ItemTest(ConfigManager.idTest);
 
 
 		registerItem();

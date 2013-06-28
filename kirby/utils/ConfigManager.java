@@ -17,6 +17,12 @@ public class ConfigManager{
 	 * 方块
 	 */
 	public static int idTi;
+	
+	
+	/**
+	 * 物品
+	 */
+	public static int idTest;
 
 	/**
 	 * @param file
@@ -31,14 +37,16 @@ public class ConfigManager{
 
 
 	/**
-	 * ========================================================
-	 * ========================================================
+====================================================================
+====================================================================
 	 */
 	private void setVaules(){
 		try {
 			config.load();
 
-			idTi = this.getInteger("OreTi",2223);
+			idTi = this.getBlockID("Titanium ore",2223);
+			
+			idTest = this.getItemID("tset", 10086);
 
 		}
 		catch (Exception e)

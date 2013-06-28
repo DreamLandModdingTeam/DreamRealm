@@ -1,9 +1,9 @@
 package kirby.core.lib;
 
 /**
- *各种虫子的数据库。Bug巴嘎雅路 凸(艹皿艹 ) 
+ *虫子列表
  */
-public class BugsLib {
+public class BugsList {
 	/**
 	 * BUG DR-0001 从梦中掉下来以后醒来结果摔死了……
 	 * DRFIXME 未修复
