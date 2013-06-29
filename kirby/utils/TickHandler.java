@@ -22,10 +22,13 @@ public class TickHandler implements ITickHandler {
 	
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
 		EntityPlayerMP player =(EntityPlayerMP) tickData[0];
@@ -42,9 +45,12 @@ public class TickHandler implements ITickHandler {
 
 			}
 		
-				player.sendChatToPlayer(COLOR_WHITE+Localization.get("xxx.ooo.text"));
+//				player.sendChatToPlayer(COLOR_WHITE+Localization.get("xxx.ooo.text"));
 			
 		}
+		/**
+		 * 在梦世界中PosY小于等于5就醒来
+		 */
 		if(player.dimension == Kirby.IdDream){
 			if(player.posY<=5){
 			player.mcServer.getConfigurationManager()
@@ -61,9 +67,15 @@ public class TickHandler implements ITickHandler {
 
 	}
 
+	/**
+	 * @param player
+	 */
 	private void loadInventory(EntityPlayer player) {
         String s = "Inv"+player.getEntityName();
-        PlayerInvSaveData invData =  (PlayerInvSaveData) FMLCommonHandler.instance().getMinecraftServerInstance().worldServerForDimension(0).loadItemData(PlayerInvSaveData.class, s);
+		PlayerInvSaveData invData = (PlayerInvSaveData) FMLCommonHandler
+				.instance().getMinecraftServerInstance()
+				.worldServerForDimension(0)
+				.loadItemData(PlayerInvSaveData.class, s);
 
         if (invData == null)
         {
@@ -75,6 +87,9 @@ public class TickHandler implements ITickHandler {
 		
 	}
 
+	/**
+	 * @param player
+	 */
 	private void saveInventory(EntityPlayerMP player) {
 		invData = new PlayerInvSaveData("Inv"+player.getEntityName());
 		invData.setData(player);

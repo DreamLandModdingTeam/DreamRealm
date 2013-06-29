@@ -18,6 +18,6 @@ public class BlockOreTi extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIcon = par1IconRegister.registerIcon("roc:ti");
+		this.blockIcon = par1IconRegister.registerIcon("DreamRealm:ti");
 	}
 }

@@ -16,14 +16,19 @@ import cpw.mods.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class DRSoundManager extends SoundManager {
-	private static final String SOUND_PATH = "/sound/";
+	private static final String SOUND_PATH = "/mods/DreamRealm/sounds/";
 	
 	/**
 	 * 声音文件库
 	 */
 	private String[] soundFiles = { 
 
-			"collection1.ogg",
+//			"collection1.ogg",
+			/** 	音效		*/
+			"fx/Bogaaru.ogg",
+			"fx/Bogaaru2.ogg"
+			/**		BGM		*/
+//			"bgm/xxx.ogg"
 	};
 
 	/**
