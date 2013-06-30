@@ -2,15 +2,20 @@ package kirby.world.world2;
 
 import java.util.Random;
 
+import kirby.core.Kirby;
+
+import cpw.mods.fml.common.IWorldGenerator;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 /**
  * @author hp
  *DRXXX 求变得像森林……现在像草原
  */
-public class WorldGenDarkForestTrees extends WorldGenerator
+public class WorldGenDarkForestTrees extends WorldGenerator //implements IWorldGenerator
 {
     private final int field_48202_a;
     private final boolean field_48200_b;
@@ -202,6 +207,19 @@ public class WorldGenDarkForestTrees extends WorldGenerator
             par1World.setBlockMetadataWithNotify(par2, par3, par4, Block.vine.blockID, par5);
         }
     }
+//
+//	@Override
+//	public void generate(Random random, int chunkX, int chunkZ, World world,
+//			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+//		int id = Kirby.IdNightmare;
+//		switch(world.provider.dimensionId)
+//         {
+//         case  id: 
+//         	generate(world, random, chunkX * 16,par2 ,chunkZ * 16);
+//         	break;
+//        
+//         }
+//	}
 
 	
 }

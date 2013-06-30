@@ -19,6 +19,7 @@ import kirby.core.tab.TabDreamRealm;
 import kirby.entities.InitEntities;
 import kirby.items.InitItems;
 import kirby.utils.ConfigManager;
+import kirby.utils.DRAchievements;
 import kirby.utils.Localization;
 import kirby.utils.TickHandler;
 import kirby.utils.event.DRSoundManager;
@@ -47,7 +48,8 @@ import cpw.mods.fml.relauncher.Side;
 
 
 /**
- *mod主类
+ *主类
+ *各位设置任务标签吧DRTODO，DRXXX和DRFIXME
  */
 @Mod(modid = MOD_ID, name = MOD_NAME, version = MOD_VERSION)//v0.0.2a
 @NetworkMod(clientSideRequired = true, serverSideRequired = false,
@@ -75,38 +77,48 @@ public class Kirby {
 		/**
 		 * 美梦
 		 */
-		public static int IdDream =8/*DimensionManager.getNextFreeDimId()*/;
+		public static int IdDream;
 		/**
 		 * 噩梦
 		 */
-		public static int IdNightmare = 9/*DimensionManager.getNextFreeDimId()*/;
+		public static int IdNightmare;
 		
 		/**
 		 * Creative Tab
 		 */
 		public static CreativeTabs customTab = new TabDreamRealm("dreamRealm");
 		
+		ConfigManager conf;
+		
 		/**
 		 * @param event
 		 * 预加载（设置、世界生成、注册Event）
+		 * @throws Exception 
 		 */
 		@PreInit
-	    public void preInit(FMLPreInitializationEvent event)
+	    public void preInit(FMLPreInitializationEvent event) throws Exception
 	    {
-			new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE_PATH));
+			conf = new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE_PATH));
 			
 			MinecraftForge.EVENT_BUS.register(new DRSoundManager());
 			
 			MinecraftForge.EVENT_BUS.register(new EventHandler());
 
+			Localization.addLocalization("/kirby/lang/", "en_US");
+			
+			GameRegistry.registerWorldGenerator(new WorldGenOres());
+			
+			DRAchievements.init(conf);
+			
+			IdDream = conf.getInteger("IdDream", 8);
+			IdNightmare = conf.getInteger("IdNightmare", 9);
+			
 			DimensionManager.registerProviderType(IdDream,WorldProviderDream.class, true);
 			DimensionManager.registerDimension(IdDream, IdDream);
 			DimensionManager.registerProviderType(IdNightmare,WorldProviderDarkForest.class, true);
 			DimensionManager.registerDimension(IdNightmare, IdNightmare);
 			
-			Localization.addLocalization("/kirby/lang/", "en_US");
 			
-			GameRegistry.registerWorldGenerator(new WorldGenOres());
 	    }
 		
 		/**
@@ -126,6 +138,7 @@ public class Kirby {
 			TickRegistry.registerTickHandler(new TickHandler(), Side.SERVER);
 			
 			LanguageRegistry.instance().addStringLocalization("itemGroup.customTab", Localization.get("creativeTab.text"));
+			
 			proxy.onLoad();
 			
 	    }
@@ -139,57 +152,5 @@ public class Kirby {
 			
 		}
 		
-		
-		
-		/* 
-		 * 主线任务↓
-		 * 
-		 *  DONE: 版本0.0.1
-		 *  
-		 *  -第一个版本
-		 *  
-		 *  
-	 	 *	DRTODO: 版本 0.0.2
-	 	 *
-	 	 * -区别梦与现实(在梦里死去就醒来)                                                                                                                                       好讽刺
-	 	 * -入睡后才入梦
-		 * -入睡后有一定几率不入梦
-		 * -添加睡眠机器(带模型，可以百分百入梦)
-		 * -DONE:添加外部化语言文件
-		 * 
-		 * 			DRXXX v0.0.2a
-		 * 			-BUG DR-0001 //fixed              ←_←也就是还没fix
-		 * 
-		 * 
-		 *
-		 *  DRTODO:  版本0.0.3 (Pretty Scary Update)
-		 * 
-		 * -添加噩梦
-		 * -添加梦魇(模型已经完成)
-		 * -添加噩梦Boss(LS+1)
-		 * -添加噩梦主题方块
-		 * 
-		 *  DRTODO: 版本0.0.4 (Wonderful Update)
-		 *  
-		 *  -添加美梦以及与美梦相关的方块和生物
-		 *  
-		 *  DRTODO: 版本0.0.5 (Story Update)
-		 *  
-		 *  -添加剧情(做一个有剧情的mod)
-		 *  
-		 *  DRTODO: 版本0.0.6 ()
-		 *  
-		 *  
-		 */
-		
-		/*
-		 *支线任务↓
-		 *还没有╮(￣▽￣)╭
-		 *
-		 *
-		 *
-		 *
-		 *
-		 */
 		
 }

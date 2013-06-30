@@ -5,8 +5,8 @@ package kirby.core.lib;
  */
 public class BugsList {
 	/**
-	 * BUG DR-0001 从梦中掉下来以后醒来结果摔死了……
-	 * DRFIXME 未修复
+	 * DRFIXME BUG DR-0001 从梦中掉下来以后醒来结果摔死了……
+	 * 状态:未修复
 	 * 原因:未知
 	 * 
 	 * BUG DR-0002 

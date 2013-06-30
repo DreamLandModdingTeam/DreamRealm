@@ -1,6 +1,6 @@
 package kirby.utils.event;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
@@ -18,38 +18,34 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class DRSoundManager extends SoundManager {
 	private static final String SOUND_PATH = "/mods/DreamRealm/sounds/";
 	
-	/**
-	 * 声音文件库
-	 */
-	private String[] soundFiles = { 
 
-//			"collection1.ogg",
-			/** 	音效		*/
-			"fx/Bogaaru.ogg",
-			"fx/Bogaaru2.ogg"
-			/**		BGM		*/
-//			"bgm/xxx.ogg"
-	};
-
-	/**
+	 /**
 	 * @param event
-	 * @throws IOException
-	 * 载入声音文件
+	 * 注册声音文件
 	 */
-	@ForgeSubscribe
-	public void onSoundsLoaded(SoundLoadEvent event) throws IOException {
+		@ForgeSubscribe
+	    public void onSound(SoundLoadEvent event)
+	    {
+	        registerStreaming(event.manager, "fx/Bogaaru.ogg", SOUND_PATH+"fx/Bogaaru.ogg");
+	        registerStreaming(event.manager, "fx/Bogaaru2.ogg", SOUND_PATH+"fx/Bogaaru2.ogg");
+	     
+	    }
 
-		for (String soundFile : soundFiles) {
-			String s = SOUND_PATH + soundFile;
-			try {
-				URL url = this.getClass().getResource(s);
-				event.manager.soundPoolSounds.addSound(soundFile, url);
-			}
+	    private void registerSound(SoundManager manager, String name, String path)
+	    {
+	        try
+	        {
+	            URL filePath = DRSoundManager.class.getResource(path);
+	            if (filePath != null) manager.soundPoolSounds.addSound(name, filePath);
+	            else throw new FileNotFoundException();
+	        } catch (Exception ex)
+	        {
+	            System.out.println(String.format("Warning: unable to load sound file %s", new Object[]{path}));
+	        }
+	    }
 
-			catch (Exception e) {
-				System.err.println("Failed loading sound file: " + s);
-				e.printStackTrace();
-			}
-		}
+	    private void registerStreaming(SoundManager manager, String name, String path)
+	    {
+	    }
 	}
-}
+

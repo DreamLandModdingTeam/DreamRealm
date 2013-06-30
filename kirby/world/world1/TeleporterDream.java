@@ -15,6 +15,10 @@ import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 
+/**
+ * @author kirby
+ *DRXXX 1.去掉地狱门2.不要在高空出生
+ */
 public class TeleporterDream extends Teleporter {
 
     private final WorldServer worldServerInstance;
