@@ -1,16 +1,15 @@
 package kirby.utils;
 
-import static kirby.core.lib.Colors.COLOR_WHITE;
-
 import java.util.EnumSet;
+import java.util.Random;
 
 import kirby.core.Kirby;
+import kirby.entities.ParticleRegistry;
 import kirby.world.world1.TeleporterDream;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.Teleporter;
-import net.minecraft.world.WorldSavedData;
-import net.minecraft.world.storage.MapData;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
@@ -19,11 +18,56 @@ public class TickHandler implements ITickHandler {
 	
 	PlayerInvSaveData invData;
 	int health;
-	
+	private boolean raining;
+	private boolean overlay;
+	public static int defaultFog;
+	//DRFIXME
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData) {
-		
+		EntityPlayer player = (EntityPlayer) tickData[0];
+		boolean nightvision = false;
 
+		if(player.dimension == Kirby.IdDream)
+		{
+			if(Minecraft.getMinecraft().gameSettings.renderDistance < (nightvision ? 1 : 2))
+			{
+				defaultFog = Minecraft.getMinecraft().gameSettings.renderDistance;
+				Minecraft.getMinecraft().gameSettings.renderDistance = nightvision ? 1 : 2;
+			}
+
+			if(player.worldObj.isRaining())
+			{
+				raining = true;
+				if(Minecraft.getMinecraft().gameSettings.renderDistance < (nightvision ? 2 : 3))
+				{
+					Minecraft.getMinecraft().gameSettings.renderDistance = nightvision ? 2 : 3;
+				}
+
+				Random random = new Random();
+				int particlesPerTick = (3 - Minecraft.getMinecraft().gameSettings.particleSetting) * 6;
+				for(int i = 0; i < particlesPerTick; i++)
+				{
+					float x = random.nextInt(4)-2;
+					float z = random.nextInt(4)-2;
+					float y = (random.nextFloat() - 0.7F)*2F;
+
+					float vx = 0.1F + random.nextFloat() * 0.1F;
+					float vz = 0.1F + random.nextFloat() * 0.1F;
+
+					ParticleRegistry.spawnParticle("sand", player.worldObj, player.posX + x, player.posY+y, player.posZ+z, vx + player.motionX, 0.0D, vz + player.motionZ);
+				}
+			}
+			else
+			{
+				if(raining == true && defaultFog < (nightvision ? 1 : 2))
+				{
+					raining = false;
+					Minecraft.getMinecraft().gameSettings.renderDistance = nightvision ? 1 : 2;
+
+				}
+			}
+		}
+		
 	}
 
 	/**
@@ -64,7 +108,8 @@ public class TickHandler implements ITickHandler {
 //			player.worldObj.setWorldTime(currentTime+currentTime/10);
 			}
 		}
-
+		
+		
 	}
 
 	/**

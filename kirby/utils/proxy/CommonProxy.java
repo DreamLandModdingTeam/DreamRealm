@@ -1,6 +1,8 @@
 package kirby.utils.proxy;
 
 import kirby.blocks.KirbyItemBlock;
+import kirby.entities.ParticleRegistry;
+import kirby.entities.fx.EntitySandFX;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,7 +27,12 @@ public class CommonProxy {
 	}
 
 	public void registerRenderInformation() {
-		//not to use
 		
 	}
+	
+//	public void registerMainMenu()
+//    {
+//    }
+	
+
 }

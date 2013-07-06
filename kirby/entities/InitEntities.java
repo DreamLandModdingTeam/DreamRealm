@@ -1,6 +1,7 @@
 package kirby.entities;
 
 import kirby.core.Kirby;
+import kirby.entities.fx.EntitySandFX;
 import kirby.models.ModelDog;
 import kirby.render.RenderDog;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -31,5 +32,9 @@ public class InitEntities {
 				250, Kirby.instance, 250, 5, false);
 		RenderingRegistry.registerEntityRenderingHandler(EntityDog.class, new RenderDog(new ModelDog(), new ModelDog(), 1.5F));
 
+		/**
+		 * 粒子注册
+		 */
+		ParticleRegistry.registerParticle("sand", EntitySandFX.class);
 	}
 }

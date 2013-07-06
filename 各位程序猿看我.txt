@@ -1,0 +1,5 @@
+==============README=================
+1.设置任务标记DRTODO，DRFIXME，DRXXX。都知道怎么用吧▔▽▔。
+2.kirby.core.lib.BugsList里面有各种未修复的bugs，经常去那里看看吧0w0.如果遇到bug请在那里登记
+3.kirby.core.lib.Partecles是各种原版以及mod里面的粒子效果的集中地点，方便查阅0w0。
+4.多写注释哟0w0

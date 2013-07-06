@@ -9,7 +9,7 @@ public class ModInfo {
 	
 	public static final String MOD_NAME = "Dream Realm";
 	
-	public static final String MOD_VERSION = "0.0.2a";
+	public static final String MOD_VERSION = "0.0.2b";
 	
 	/**
 	 * 版本好旧_(:3J ∠)_	

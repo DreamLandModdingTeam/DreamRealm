@@ -3,7 +3,7 @@ package kirby.core.lib;
 public class Particles {
 	
 	    /**
-	     * 原版的一些粒子效果
+	     * 原版粒子效果
 	     */
 	    public static final String NORMAL_SMOKE 	= "smoke";
 	    public static final String LARGE_SMOKE 		= "largesmoke";
@@ -31,5 +31,9 @@ public class Particles {
 	    public static final String DRIP_LAVA 				= "dripLava";
 	    public static final String TOWN_AURA 			= "townaura";
 	    public static final String RED_DUST 				= "reddust";
+	    /**
+	     * mod中的粒子效果
+	     */
+	    public static final String SAND						="sand";
 	}
 

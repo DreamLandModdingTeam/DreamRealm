@@ -49,7 +49,7 @@ import cpw.mods.fml.relauncher.Side;
 
 /**
  *主类
- *各位设置任务标签吧DRTODO，DRXXX和DRFIXME
+ *各位设置任务标签吧╮(￣▽￣)╭ lDRTODO，DRXXX和DRFIXME
  */
 @Mod(modid = MOD_ID, name = MOD_NAME, version = MOD_VERSION)//v0.0.2a
 @NetworkMod(clientSideRequired = true, serverSideRequired = false,
@@ -113,11 +113,12 @@ public class Kirby {
 			IdDream = conf.getInteger("IdDream", 8);
 			IdNightmare = conf.getInteger("IdNightmare", 9);
 			
+			
+			
 			DimensionManager.registerProviderType(IdDream,WorldProviderDream.class, true);
 			DimensionManager.registerDimension(IdDream, IdDream);
 			DimensionManager.registerProviderType(IdNightmare,WorldProviderDarkForest.class, true);
 			DimensionManager.registerDimension(IdNightmare, IdNightmare);
-			
 			
 	    }
 		
