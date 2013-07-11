@@ -456,4 +456,10 @@ public class ChunkProviderDream
 	public boolean unloadQueuedChunks() {
 		return false;
 	}
+
+	@Override
+	public void func_104112_b() {
+		// TODO Auto-generated method stub
+		
+	}
 }

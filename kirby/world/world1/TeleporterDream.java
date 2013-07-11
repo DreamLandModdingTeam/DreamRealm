@@ -90,7 +90,7 @@ public class TeleporterDream extends Teleporter {
             i = portalposition.posX;
             j = portalposition.posY;
             k = portalposition.posZ;
-            portalposition.field_85087_d = worldServerInstance.getTotalWorldTime();
+            portalposition.lastUpdateTime = worldServerInstance.getTotalWorldTime();
             flag = false;
         }else{
             for (k1 = l - short1; k1 <= (l + short1); ++k1){
