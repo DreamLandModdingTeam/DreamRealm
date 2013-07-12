@@ -65,18 +65,16 @@ public class EntitySandFX extends EntityFX
 	    this.particleScale = (1.0F - var8 * var8 * 0.5F);
 
 	    int index = 3*particleAge/particleMaxAge;
-	    GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, ModLoader.getMinecraftInstance().renderEngine.getTexture("/mods/DreamRealm/textures/particles/Sand.png"));
-	    float f0 = index/16F;//(float)(getParticleTextureIndex() % 16) / 16F;
+	    GL11.glBindTexture(3553, ModLoader.getMinecraftInstance().renderEngine.getTexture("/mods/DreamRealm/textures/particles/Sand.png"));
+	    float f0 = index/16F;
 	    float f7 = f0 + 1/16F;
-	    float f8 = 1;//(float)(getParticleTextureIndex() / 16) / 16F;
+	    float f8 = 1;
 	    float f9 = f8 + 1/16F;
 	    float f10 = 0.1F * particleScale;
 	    float f11 = (float)((prevPosX + (posX - prevPosX) * (double)f) - interpPosX);
 	    float f12 = (float)((prevPosY + (posY - prevPosY) * (double)f) - interpPosY);
 	    float f13 = (float)((prevPosZ + (posZ - prevPosZ) * (double)f) - interpPosZ);
 	    float f14 = 1.0F;
-	    //tessellator1.setColorOpaque_F(particleRed * f14, particleGreen * f14, particleBlue * f14);
-	    //tessellator1.setColorOpaque_F(this.particleRed, this.particleGreen, this.particleBlue);
 	    float brightness = this.rand.nextFloat() * 0.2F + 0.5F;
 	    tessellator1.setColorRGBA_F(0.7F * brightness, 0.55F * brightness, 0.35F * brightness, 0.6F);
         tessellator1.addVertexWithUV(f11 - f1 * f10 - f4 * f10, f12 - f2 * f10, f13 - f3 * f10 - f5 * f10, f7, f9);

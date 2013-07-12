@@ -84,7 +84,7 @@ public class TickHandler implements ITickHandler {
 							(player,Kirby.IdDream,new TeleporterDream
 								(player.mcServer.worldServerForDimension(Kirby.IdDream)));
 					saveInventory(player);
-					health = player.getHealth();
+				//	health = player.getHealth();
 						player.inventory.clearInventory(-1, -1);
 
 			}
