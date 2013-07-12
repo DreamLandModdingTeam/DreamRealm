@@ -149,10 +149,10 @@ public class TeleporterDream extends Teleporter {
                 j2 = 1;
             }
 
-            int k2 = par1Entity.func_82143_as();
+            int k2 = par1Entity.getTeleportDirection();
 
             if (j2 > -1){
-                int l2 = Direction.field_71578_g[j2];
+                int l2 = Direction.rotateLeft[j2];
                 int i3 = Direction.offsetX[j2];
                 int j3 = Direction.offsetZ[j2];
                 int k3 = Direction.offsetX[l2];
@@ -163,8 +163,8 @@ public class TeleporterDream extends Teleporter {
                         || !worldServerInstance.isAirBlock(i + i3, j + 1, k + j3);
 
                 if (flag1 && flag2){
-                    j2 = Direction.footInvisibleFaceRemap[j2];
-                    l2 = Direction.footInvisibleFaceRemap[l2];
+                    j2 = Direction.rotateOpposite[j2];
+                    l2 = Direction.rotateOpposite[l2];
                     i3 = Direction.offsetX[j2];
                     j3 = Direction.offsetZ[j2];
                     k3 = Direction.offsetX[l2];
@@ -200,10 +200,10 @@ public class TeleporterDream extends Teleporter {
                 if (j2 == k2){
                     f3 = 1.0F;
                     f4 = 1.0F;
-                }else if (j2 == Direction.footInvisibleFaceRemap[k2]){
+                }else if (j2 == Direction.rotateOpposite[k2]){
                     f3 = -1.0F;
                     f4 = -1.0F;
-                }else if (j2 == Direction.enderEyeMetaToDirection[k2]){
+                }else if (j2 == Direction.rotateRight[k2]){
                     f5 = 1.0F;
                     f6 = -1.0F;
                 }else{
