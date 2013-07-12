@@ -45,7 +45,8 @@ public class DRSoundManager extends SoundManager {
 	        try
 	        {
 	            URL filePath = DRSoundManager.class.getResource(path);
-	            if (filePath != null) manager.soundPoolSounds.addSound(name, filePath);
+	            //DRXXX
+	            if (filePath != null) manager.soundPoolSounds.addSound(name);
 	            else throw new FileNotFoundException();
 	        } catch (Exception ex)
 	        {

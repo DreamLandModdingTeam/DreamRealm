@@ -2,6 +2,7 @@ package kirby.utils.proxy;
 
 import kirby.entities.ParticleRegistry;
 import kirby.entities.fx.EntitySandFX;
+import net.minecraft.src.ModLoader;
 import net.minecraft.util.StringTranslate;
 
 /**
@@ -17,7 +18,7 @@ public class ClientProxy extends CommonProxy{
 	}
 	@Override
 	public String getCurrentLanguage() {
-		return StringTranslate.getInstance().getCurrentLanguage();
+		return ModLoader.getMinecraftInstance().func_135016_M().func_135041_c().func_135034_a();
 	}
 	
 	@Override

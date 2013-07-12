@@ -3,6 +3,7 @@ package kirby.entities.fx;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.src.ModLoader;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
@@ -18,6 +19,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class EntitySandFX extends EntityFX
 {
     float smokeParticleScale;
+    private static final ResourceLocation resource = new ResourceLocation("/mods/DreamRealm/textures/particles/Sand.png");
+    private static final ResourceLocation particles = new ResourceLocation("/particles.png");
 
     public EntitySandFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12)
     {
@@ -65,7 +68,7 @@ public class EntitySandFX extends EntityFX
 	    this.particleScale = (1.0F - var8 * var8 * 0.5F);
 
 	    int index = 3*particleAge/particleMaxAge;
-	    GL11.glBindTexture(3553, ModLoader.getMinecraftInstance().renderEngine.getTexture("/mods/DreamRealm/textures/particles/Sand.png"));
+	    GL11.glBindTexture(GL11.GL_TEXTURE_2D, ModLoader.getMinecraftInstance().renderEngine.func_110581_b(resource).func_110552_b());
 	    float f0 = index/16F;
 	    float f7 = f0 + 1/16F;
 	    float f8 = 1;
@@ -83,7 +86,7 @@ public class EntitySandFX extends EntityFX
 	    tessellator1.addVertexWithUV((f11 + f1 * f10) - f4 * f10, f12 - f2 * f10, (f13 + f3 * f10) - f5 * f10, f0, f9);
 
 	    tessellator1.draw();
-	    GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, ModLoader.getMinecraftInstance().renderEngine.getTexture("/particles.png"));
+	    GL11.glBindTexture(GL11.GL_TEXTURE_2D, ModLoader.getMinecraftInstance().renderEngine.func_110581_b(particles).func_110552_b());
 	}
 
 	@Override

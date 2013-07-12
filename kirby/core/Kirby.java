@@ -90,12 +90,14 @@ public class Kirby {
 		
 		ConfigManager conf;
 		
+		
+		
 		/**
 		 * @param event
 		 * 预加载（设置、世界生成、注册Event）
 		 * @throws Exception 
 		 */
-		@PreInit
+		@Mod.EventHandler
 	    public void preInit(FMLPreInitializationEvent event) throws Exception
 	    {
 			conf = new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE_PATH));
@@ -126,7 +128,7 @@ public class Kirby {
 		 * @param event
 		 * 加载（方块，物品，实体,网络处理）
 		 */
-		@Init
+		@Mod.EventHandler
 	    public void init(FMLInitializationEvent event)
 	    {
 			
@@ -148,7 +150,7 @@ public class Kirby {
 		 * @param event
 		 * 加载后
 		 */
-		@PostInit
+		@Mod.EventHandler
 		public void postInit(FMLPostInitializationEvent event){
 			
 		}
