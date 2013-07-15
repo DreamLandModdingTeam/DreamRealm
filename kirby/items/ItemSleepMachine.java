@@ -5,7 +5,7 @@ import net.minecraft.item.ItemBed;
 public class ItemSleepMachine extends ItemBed{
 
 	public static ItemSleepMachine instance;
-	
+	//DRTODO 求说明这是什么。。。
 	public ItemSleepMachine(int par1) {
 		super(par1);
 		this.setUnlocalizedName("dreamRealm:sleepMachine");

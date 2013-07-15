@@ -1,7 +1,12 @@
 package kirby.utils;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
+
+import com.google.common.collect.Sets;
 
 import kirby.core.Kirby;
 import kirby.entities.ParticleRegistry;
@@ -21,6 +26,7 @@ public class TickHandler implements ITickHandler {
 	private boolean raining;
 	private boolean overlay;
 	public static int defaultFog;
+	public static HashSet<String> notFall =new HashSet<String>();
 	//DRFIXME
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData) {
@@ -97,9 +103,11 @@ public class TickHandler implements ITickHandler {
 		 */
 		if(player.dimension == Kirby.IdDream){
 			if(player.posY<=5){
+				TickHandler.notFall.add(player.username);
 			player.mcServer.getConfigurationManager()
-			.transferPlayerToDimension(player,0,new Teleporter
+			.transferPlayerToDimension(player,0,new TeleporterDream
 					(player.mcServer.worldServerForDimension(0)));
+			
 			loadInventory(player);
 			player.inventory.mainInventory=invData.getPlayerInv();
 			player.inventory.armorInventory=invData.getPlayerArmor();

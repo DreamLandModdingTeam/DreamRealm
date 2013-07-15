@@ -7,9 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class InitBlocks {
-	CommonProxy proxy = Kirby.proxy;
-	
-	
 	
 	public static Block BlockOreTi;
 
@@ -26,7 +23,7 @@ public class InitBlocks {
 	private void registerBlock() {
 
 
-		proxy.registerBlock(BlockOreTi);
+		Kirby.proxy.registerBlock(BlockOreTi);
 
 	}
 }

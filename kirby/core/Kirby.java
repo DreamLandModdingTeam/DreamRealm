@@ -32,10 +32,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -98,11 +95,11 @@ public class Kirby {
 		 * @throws Exception 
 		 */
 		@Mod.EventHandler
-	    public void preInit(FMLPreInitializationEvent event) throws Exception
+	    public void preInit(FMLPreInitializationEvent event)
 	    {
 			conf = new ConfigManager(new File(event.getModConfigurationDirectory(), CONFIG_FILE_PATH));
-			
-			MinecraftForge.EVENT_BUS.register(new DRSoundManager());
+
+//		MinecraftForge.EVENT_BUS.register(new DRSoundManager());
 			
 			MinecraftForge.EVENT_BUS.register(new EventHandler());
 
@@ -112,10 +109,19 @@ public class Kirby {
 			
 			DRAchievements.init(conf);
 			
-			IdDream = conf.getInteger("IdDream", 8);
-			IdNightmare = conf.getInteger("IdNightmare", 9);
+			try {
+				IdDream = conf.getInteger("IdDream", 8);
+				IdNightmare = conf.getInteger("IdNightmare", 9);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+            new InitBlocks();
 			
+			new InitItems();
 			
+			new InitEntities();
+			
+			LanguageRegistry.instance().addStringLocalization("itemGroup.dreamRealm", Localization.get("tab.dreamRealm"));
 			
 			DimensionManager.registerProviderType(IdDream,WorldProviderDream.class, true);
 			DimensionManager.registerDimension(IdDream, IdDream);
@@ -132,15 +138,11 @@ public class Kirby {
 	    public void init(FMLInitializationEvent event)
 	    {
 			
-			new InitBlocks();
 			
-			new InitItems();
-			
-			new InitEntities();
 			
 			TickRegistry.registerTickHandler(new TickHandler(), Side.SERVER);
 			
-			LanguageRegistry.instance().addStringLocalization("itemGroup.customTab", Localization.get("creativeTab.text"));
+			
 			
 			proxy.onLoad();
 			

@@ -11,11 +11,8 @@ public class ModInfo {
 	
 	public static final String MOD_VERSION = "0.0.2b";
 	
-	/**
-	 * 版本好旧_(:3J ∠)_	
-	 * DRTODO:升级到最新版的Forge
-	 */
-	public static String MOD_DEPENDENCIES = "required-after:Forge@[v7.7.0.608,)";
+
+	public static String MOD_DEPENDENCIES = "required-after:Forge@[v9.10.0.789,)";
 	
 	public static final String PACKET_CHANEL = MOD_ID;
 	

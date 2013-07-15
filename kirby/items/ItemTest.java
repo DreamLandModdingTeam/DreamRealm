@@ -47,8 +47,7 @@ public class ItemTest extends Item{
 //	break Loop;
 //	}
 //	}
-
-	par2World.playSoundAtEntity(par3EntityPlayer, "Bogaaru",10.0f, 1.0f);
+	par2World.playSoundAtEntity(par3EntityPlayer, "dreamrealm:Bogaaru",10.0f, 1.0f);
 	return par1ItemStack;
 	}
 	
@@ -57,7 +56,7 @@ public class ItemTest extends Item{
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.itemIcon = par1IconRegister.registerIcon("roc:ti");
+        this.itemIcon = par1IconRegister.registerIcon("dreamrealm:test");
 	}
 	}
 

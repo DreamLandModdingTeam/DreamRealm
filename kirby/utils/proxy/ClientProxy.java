@@ -1,9 +1,6 @@
 package kirby.utils.proxy;
 
-import kirby.entities.ParticleRegistry;
-import kirby.entities.fx.EntitySandFX;
 import net.minecraft.src.ModLoader;
-import net.minecraft.util.StringTranslate;
 
 /**
  * @author kirby
